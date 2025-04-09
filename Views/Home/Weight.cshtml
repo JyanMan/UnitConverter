@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Weight";
+}
+<h1>@ViewData["Title"] Conversion</h1>
+
+<div id="conversion-container">
+    <div class="input-container" id="value-to-convert">
+        <label class="value-label">Input the <b>Weight</b> to convert</label>
+        <input id="value-input">
+    </div>
+
+    <div class="input-container" id="initial-unit">
+        <label class="value-label">Unit to convert from</label>
+        <input id="value-input">
+    </div>
+
+    <div class="input-container" id="final-unit">
+        <label class="value-label">Unit to convert to</label>
+        <input id="value-input">
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/converter.css" asp-append-version="true" />
+}

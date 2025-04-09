@@ -1,0 +1,19 @@
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+#conversion-container {
+    width: 40vw;
+    background-color: rgb(189, 187, 187, 60%);
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#convert-btn {
+    align-self: flex-end;
+}

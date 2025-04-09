@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Length";
+}
+<h1>@ViewData["Title"] Conversion</h1>
+
+<div id="conversion-container">
+
+    <form action="/Home/Convert" method="post">
+        <div class="input-container" id="value-to-convert">
+            <label for="value-input" class="value-label">Input the <b>Length</b> to convert</label>
+            <input type="number" step="0.001" id="value-input" name="value">
+        </div>
+
+        <div class="input-container" id="initial-unit">
+            <label for="iunit-input" class="value-label">Unit to convert from</label>
+            <input type="text" id="iunit-input" name="iunit">
+        </div>
+
+        <div class="input-container" id="final-unit">
+            <label for="funit-input" class="value-label">Unit to convert to</label>
+            <input type="text" id="funit-input" name="funit">
+        </div>
+
+        <button id="convert-btn" value="@ViewData["Title"]" name="button">Convert</button>
+    </form>
+    <h1>Result: @TempData["result"]</h1>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/converter.css" asp-append-version="true" />
+}
