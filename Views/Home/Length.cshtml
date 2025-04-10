@@ -11,17 +11,23 @@
             <input type="number" step="0.001" id="value-input" name="value">
         </div>
 
+        <datalist id="unit-list">
+            <option value="centimeter"></option>
+            <option value="meter"></option>
+        </datalist>
+
         <div class="input-container" id="initial-unit">
             <label for="iunit-input" class="value-label">Unit to convert from</label>
-            <input type="text" id="iunit-input" name="iunit">
+            <input type="text" id="iunit-input" name="iunit" list="unit-list">
         </div>
 
         <div class="input-container" id="final-unit">
             <label for="funit-input" class="value-label">Unit to convert to</label>
-            <input type="text" id="funit-input" name="funit">
+            <input type="text" id="funit-input" name="funit" list="unit-list">
         </div>
 
         <button id="convert-btn" value="@ViewData["Title"]" name="button">Convert</button>
+
     </form>
     <h1>Result: @TempData["result"]</h1>
 </div>
