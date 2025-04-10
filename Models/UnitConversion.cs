@@ -67,9 +67,31 @@ public class UnitConversion
         return value;
     }
 
-    public static string ConvertWeight()
+    public static string ConvertTemp(float value, string iunit, string funit)
     {
-        string result = "";
+        float newValue = value;
+        switch (iunit)
+        {
+            case "celsius":
+                if (funit == "fahrenheit")
+                    newValue = (value * 9 / 5) + 32;
+                else if (funit == "kelvin")
+                    newValue = value + 273.5f;
+                break;
+            case "fahrenheit":
+                if (funit == "celsius")
+                    newValue = (value - 32) * 9 / 5;
+                else if (funit == "kelvin")
+                    newValue = ((value - 32) * 9 / 5) + 273.5f;
+                break;
+            case "kelvin":
+                if (funit == "celsius")
+                    newValue = value - 273.5f;
+                break;
+            default:
+                break;
+        }
+        string result = $"{newValue} {funit}";
         return result;
     }
 }

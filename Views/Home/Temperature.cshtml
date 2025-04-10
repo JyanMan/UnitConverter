@@ -1,23 +1,36 @@
 @{
-    ViewData["Title"] = "Temperature Conversion";
+    ViewData["Title"] = "Temperature";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>@ViewData["Title"] Conversion</h1>
 
 <div id="conversion-container">
-    <div class="input-container" id="value-to-convert">
-        <label class="value-label">Input the <b>Temperature</b> to convert</label>
-        <input id="value-input">
-    </div>
 
-    <div class="input-container" id="initial-unit">
-        <label class="value-label">Unit to convert from</label>
-        <input id="value-input">
-    </div>
+    <form action="/Home/Convert?unitType=temperature" method="post">
+        <div class="input-container" id="value-to-convert">
+            <label for="value-input" class="value-label">Input the <b>Temperature</b> to convert</label>
+            <input type="number" step="0.001" id="value-input" name="value">
+        </div>
 
-    <div class="input-container" id="final-unit">
-        <label class="value-label">Unit to convert to</label>
-        <input id="value-input">
-    </div>
+        <datalist id="unit-list">
+            <option value="celsius"></option>
+            <option value="fahrenheit"></option>
+            <option value="kelvin"></option>
+        </datalist>
+
+        <div class="input-container" id="initial-unit">
+            <label for="iunit-input" class="value-label">Unit to convert from</label>
+            <input type="text" id="iunit-input" name="iunit" list="unit-list">
+        </div>
+
+        <div class="input-container" id="final-unit">
+            <label for="funit-input" class="value-label">Unit to convert to</label>
+            <input type="text" id="funit-input" name="funit" list="unit-list">
+        </div>
+
+        <button id="convert-btn" value="@ViewData["Title"]" name="button">Convert</button>
+
+    </form>
+    <h1>Result: @TempData["result"]</h1>
 </div>
 
 @section Styles {

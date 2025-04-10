@@ -39,15 +39,30 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Convert(float value, string iunit, string funit, string button = "Index")
+    public IActionResult Convert(float value, string iunit, string funit, string unitType, string button = "Index")
     {
         if (funit == null || iunit == null)
         {
             TempData["result"] = "Input units";
             return RedirectToAction(button.ToString());
         }
-        float result = UnitConversion.ConvertLength(value, iunit, funit);
-        TempData["result"] = result.ToString() + " " + funit;
+
+        string result = "";
+        switch (unitType)
+        {
+            case "length":
+                result = UnitConversion.ConvertLength(value, iunit, funit);
+                break;
+            case "weight":
+                break;
+            case "temperature":
+                result = UnitConversion.ConvertTemp(value, iunit, funit);
+                break;
+            default:
+                break;
+
+        }
+        TempData["result"] = result;
         return RedirectToAction(button.ToString());
     }
 
