@@ -54,6 +54,7 @@ public class HomeController : Controller
                 result = UnitConversion.ConvertLength(value, iunit, funit);
                 break;
             case "weight":
+                result = UnitConversion.ConvertWeight(value, iunit, funit);
                 break;
             case "temperature":
                 result = UnitConversion.ConvertTemp(value, iunit, funit);

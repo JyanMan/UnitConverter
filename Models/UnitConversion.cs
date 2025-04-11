@@ -36,6 +36,10 @@ public class UnitConversion
                 float mileToM = value * 1609.34f;
                 newValue = FromMeterConvert(mileToM, funit);
                 break;
+            case "foot":
+                float footToM = value * 0.3048f;
+                newValue = FromMeterConvert(footToM, funit);
+                break;
             default:
                 break;
         }
@@ -64,6 +68,56 @@ public class UnitConversion
             default:
                 break;
         }
+        return value;
+    }
+
+    public static string ConvertWeight(float value, string iunit, string funit)
+    {
+        float newValue = value;
+        switch (iunit)
+        {
+            case "gram":
+                newValue = FromGramConvert(value, funit);
+                break;
+            case "milligram":
+                float mgToG = value * 0.001f;
+                newValue = FromGramConvert(mgToG, funit);
+                break;
+            case "kilogram":
+                float kgToG = value * 1000f;
+                newValue = FromGramConvert(kgToG, funit);
+                break;
+            case "ounce":
+                float oToG = value * 28.3495f;
+                newValue = FromGramConvert(oToG, funit);
+                break;
+            case "pound":
+                float pToG = value * 453.592f;
+                newValue = FromGramConvert(pToG, funit);
+                break;
+            default:
+                break;
+
+        }
+        return $"{newValue} {funit}";
+    }
+
+    static float FromGramConvert(float value, string unit)
+    {
+        switch (unit)
+        {
+            case "milligram":
+                return value * 1000f;
+            case "kilogram":
+                return value * 0.001f;
+            case "ounce":
+                return value * 0.035274f;
+            case "pound":
+                return value * 0.00220462f;
+            default:
+                break;
+        }
+
         return value;
     }
 
