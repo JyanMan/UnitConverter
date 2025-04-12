@@ -10,7 +10,7 @@ project idea: https://roadmap.sh/projects/unit-converter
  - if not, just download the whole repository
 
 2. execute this in commad prompt within the directory ../UnitConverter
-    - dotnet run
+ - `dotnet run`
 
 3. Then copy the provided url to your browser
- - `localhost/<Port>
+ - `http://localhost/<Port>`
