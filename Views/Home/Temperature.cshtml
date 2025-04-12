@@ -5,7 +5,7 @@
 
 <div id="conversion-container">
 
-    <form action="/Home/Convert?unitType=temperature" method="post">
+    <form id="convert-forms-container" action="/Home/Convert?unitType=temperature" method="post">
         <div class="input-container" id="value-to-convert">
             <label for="value-input" class="value-label">Input the <b>Temperature</b> to convert</label>
             <input type="number" step="0.001" id="value-input" name="value">
@@ -29,9 +29,18 @@
 
         <button id="convert-btn" value="@ViewData["Title"]" name="button">Convert</button>
 
+        <h1>Result: @TempData["result"]</h1>
     </form>
-    <h1>Result: @TempData["result"]</h1>
+
+    <div id="units-container"> <h2>Included Units</h2>
+        <ul>
+            <li>celsius</li>
+            <li>fahrenheit</li>
+            <li>kelvin</li>
+        </ul>
+    </div>
 </div>
+
 
 @section Styles {
     <link rel="stylesheet" href="~/css/converter.css" asp-append-version="true" />

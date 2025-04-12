@@ -1,8 +1,6 @@
 namespace UnitConverter.Models;
 public class UnitConversion
 {
-    public UnitConversion() {}
-
     public static string ConvertLength(float value, string iunit, string funit)
     {
         float newValue = value;
@@ -41,7 +39,7 @@ public class UnitConversion
                 newValue = FromMeterConvert(footToM, funit);
                 break;
             default:
-                break;
+                return $"{iunit} is not included";
         }
         string result = $"{newValue} {funit}";
         return result;
@@ -96,7 +94,7 @@ public class UnitConversion
                 newValue = FromGramConvert(pToG, funit);
                 break;
             default:
-                break;
+                return $"{iunit} is not included";
 
         }
         return $"{newValue} {funit}";
@@ -143,7 +141,7 @@ public class UnitConversion
                     newValue = value - 273.5f;
                 break;
             default:
-                break;
+                return $"{iunit} is not included";
         }
         string result = $"{newValue} {funit}";
         return result;
